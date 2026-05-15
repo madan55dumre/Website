@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Double Booking Prevent</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 25px;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .message {
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Appointment Booking</h2>
+
+    <input type="date" id="date">
+    <input type="time" id="time">
+    <button onclick="addAppointment()">Book Appointment</button>
+
+    <div class="message" id="msg"></div>
+
+    <h3>Booked Appointments</h3>
+    <ul id="list"></ul>
+</div>
+
+<script>
+    // Fake database
+    let appointments = [];
+
+    function addAppointment() {
+        let date = document.getElementById("date").value;
+        let time = document.getElementById("time").value;
+        let message = document.getElementById("msg");
+
+        if (date === "" || time === "") {
+            message.style.color = "red";
+            message.innerText = "Please select date and time!";
+            return;
+        }
+
+        // Check for double booking
+        let exists = appointments.find(app =>
+            app.date === date && app.time === time
+        );
+
+        if (exists) {
+            message.style.color = "red";
+            message.innerText = "❌ Already booked! Choose another time.";
+        } else {
+            appointments.push({ date, time });
+            message.style.color = "green";
+            message.innerText = "✅ Appointment booked successfully!";
+            showAppointments();
+        }
+    }
+
+    function showAppointments() {
+        let list = document.getElementById("list");
+        list.innerHTML = "";
+
+        appointments.forEach(app => {
+            let li = document.createElement("li");
+            li.innerText = `${app.date} at ${app.time}`;
+            list.appendChild(li);
+        });
+    }
+</script>
+
+</body>
+</html>

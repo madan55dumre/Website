@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login System</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        width: 350px;
+        background: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        background: #667eea;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background: #5a67d8;
+    }
+
+    .link {
+        text-align: center;
+        margin-top: 10px;
+        color: #667eea;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    #message {
+        text-align: center;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+
+<body>
+   
+
+<div class="container">
+
+    <!-- LOGIN FORM -->
+
+
+<!-- links login html with php -->
+
+<form action="test.php" method="post">
+ 
+ <!-- links login html with php -->
+
+
+
+
+    <div id="loginBox">
+        <h2>Login</h2>
+
+        <input type="text" id="loginUsername" placeholder="Username">
+        <input type="password" id="loginPassword" placeholder="Password">
+
+        <button onclick="login()">Login</button>
+
+        <div class="link" onclick="showForgot()">Forgot Password?</div>
+    </div>
+
+    <!-- FORGOT PASSWORD -->
+    <div id="forgotBox" class="hidden">
+        <h2>Forgot Password</h2>
+
+        <input type="text" id="forgotUsername" placeholder="Enter Username">
+
+        <button onclick="recover()">Recover Password</button>
+
+        <div class="link" onclick="showLogin()">Back to Login</div>
+    </div>
+
+    <div id="message"></div>
+</div>
+
+<script>
+    // predefined credentials
+    var savedUsername = "admin";
+    var savedPassword = "12345";
+
+    function login() {
+        var u = document.getElementById("loginUsername").value;
+        var p = document.getElementById("loginPassword").value;
+
+        if (u === savedUsername && p === savedPassword) {
+            document.getElementById("message").style.color = "green";
+            document.getElementById("message").innerHTML = "Login Successful ✅";
+        } else {
+            document.getElementById("message").style.color = "red";
+            document.getElementById("message").innerHTML = "Invalid Username or Password ❌";
+        }
+    }
+
+    function showForgot() {
+        document.getElementById("loginBox").classList.add("hidden");
+        document.getElementById("forgotBox").classList.remove("hidden");
+        document.getElementById("message").innerHTML = "";
+    }
+
+    function showLogin() {
+        document.getElementById("forgotBox").classList.add("hidden");
+        document.getElementById("loginBox").classList.remove("hidden");
+        document.getElementById("message").innerHTML = "";
+    }
+
+    function recover() {
+        var u = document.getElementById("forgotUsername").value;
+
+        if (u === savedUsername) {
+            document.getElementById("message").style.color = "green";
+            document.getElementById("message").innerHTML =
+                "Your password is: <b>" + savedPassword + "</b>";
+        } else {
+            document.getElementById("message").style.color = "red";
+            document.getElementById("message").innerHTML =
+                "Username not found ❌";
+        }
+    }
+</script>
+</form>
+
+</body>
+</html>

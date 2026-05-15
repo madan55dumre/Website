@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Appointment Add</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(120deg, #84fab0, #8fd3f4);
+        min-height: 100vh;
+        padding: 40px;
+    }
+
+    .box {
+        max-width: 600px;
+        background: white;
+        margin: auto;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0 15px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        padding: 10px 20px;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background: #218838;
+    }
+
+    table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    th {
+        background: #f4f4f4;
+    }
+
+    #msg {
+        margin-top: 15px;
+        font-weight: bold;
+        color: green;
+    }
+</style>
+</head>
+
+<body>
+
+
+<div class="box">
+
+    <!-- TOP HEADING AS IN PHOTO -->
+    <h2>2️⃣ Appointment </h2>
+    <p><b>अनिवार्य छ ✅</b></p>
+
+    <hr>
+
+    <!-- APPOINTMENT FORM -->
+   <form action="test.php" method="post">
+
+<label>Patient</label>
+<input type="text" name="patient" required>
+
+<label>Date</label>
+<input type="date" name="date" required>
+
+<label>Time</label> 
+<input type="time" name="time" required>
+
+<button type="submit">Add Appointment</button>
+
+</form>
+
+</body>
+</html>

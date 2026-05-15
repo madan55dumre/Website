@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Skills | Madan Portfolio</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(to bottom right,#f8fafc,#eef4ff);
+    color:#0f172a;
+}
+
+/* NAVBAR */
+
+
+nav{
+    width:100%;
+    background:rgba(255, 255, 255, 0.95);
+    backdrop-filter:blur(10px);
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 20px rgba(226, 6, 6, 0.2);
+}
+
+nav h1{
+    color:#0f172a;
+    font-size:42px;
+    font-weight:800;
+}
+
+nav ul{
+    display:flex;
+    align-items:center;
+    list-style:none;
+    gap:35px;
+}
+
+nav ul li{
+    position:relative;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#111827;
+    font-size:18px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#2563eb;
+}
+
+/* ================= DROPDOWN MENU ================= */
+
+.dropdown-menu{
+    position:absolute;
+    top:45px;
+    left:-20px;
+    width:300px;
+    background:white;
+    border-radius:24px;
+    padding:22px;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(12px);
+    transition:0.35s ease;
+    box-shadow:0 20px 45px rgba(0,0,0,0.12);
+    z-index:1000;
+}
+
+.dropdown:hover .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0px);
+}
+
+/* TOP PART */
+
+.top-menu{
+    border-bottom:1px solid #e5e7eb;
+    padding-bottom:14px;
+    margin-bottom:14px;
+}
+
+.menu-box{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:12px;
+    border-radius:14px;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.menu-box:hover{
+    background:#f3f6ff;
+}
+
+.menu-box span{
+    width:42px;
+    height:42px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#eff6ff;
+    color:#2563eb;
+    border-radius:12px;
+    font-size:18px;
+}
+
+.menu-box p{
+    font-size:15px;
+    color:#111827;
+    font-weight:700;
+}
+
+/* LINKS */
+
+.menu-links a{
+    display:block;
+    padding:13px 12px;
+    border-radius:12px;
+    text-decoration:none;
+    color:#374151;
+    font-size:15px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.menu-links a:hover{
+    background:#eff6ff;
+    color:#2563eb;
+    transform:translateX(5px);
+}
+
+/* SKILLS */
+
+.skills-page{
+    padding:110px 10%;
+    text-align:center;
+}
+
+.skills-page h2{
+    font-size:58px;
+    margin-bottom:18px;
+    color:#0f172a;
+    font-weight:800;
+}
+
+.skills-page::after{
+    content:"";
+    width:100px;
+    height:5px;
+    background:linear-gradient(to right,#2563eb,#ec4899);
+    display:block;
+    margin:0 auto 70px;
+    border-radius:20px;
+}
+
+.skill-boxes{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:35px;
+}
+
+.skill{
+    background:white;
+    padding:40px 30px;
+    border-radius:28px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.07);
+    transition:0.4s;
+    border:1px solid rgba(226,232,240,0.8);
+    position:relative;
+    overflow:hidden;
+}
+
+.skill::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:6px;
+    background:linear-gradient(to right,#2563eb,#ec4899);
+}
+
+.skill:hover{
+    transform:translateY(-12px);
+    box-shadow:0 20px 35px rgba(0,0,0,0.12);
+}
+
+.skill h3{
+    color:#2563eb;
+    margin-bottom:18px;
+    font-size:32px;
+    font-weight:800;
+}
+
+.skill p{
+    font-size:18px;
+    line-height:1.8;
+    color:#475569;
+}
+
+/* FOOTER */
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:70px;
+    font-size:16px;
+    letter-spacing:0.5px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    nav{
+        padding:18px 30px;
+    }
+
+    nav h1{
+        font-size:34px;
+    }
+
+    nav ul{
+        gap:18px;
+    }
+
+    .skills-page h2{
+        font-size:42px;
+    }
+}
+
+@media(max-width:700px){
+
+    nav{
+        flex-direction:column;
+        gap:18px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .dropdown-menu{
+        left:-90px;
+    }
+
+    .skills-page{
+        padding:80px 7%;
+    }
+
+    .skills-page h2{
+        font-size:38px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <h1>Madan</h1>
+
+    <ul>
+
+        <li><a href="Homepage.html">Home</a></li>
+             <li><a href="about.html">About</a></li>
+
+        <!-- DROPDOWN -->
+
+        <li class="dropdown">
+
+            <a href="skills.html">Skills ▾</a>
+
+            <div class="dropdown-menu">
+
+                <div class="top-menu">
+
+                    <div class="menu-box">
+                        <span>↗</span>
+                        <p>Popular</p>
+                    </div>
+
+                    <div class="menu-box">
+                        <span>✧</span>
+                        <p>New and Noteworthy</p>
+                    </div>
+
+                </div>
+
+                <div class="menu-links">
+
+                    <a href="#">Product Design</a>
+                    <a href="#">Web Design</a>
+                    <a href="#">Animation</a>
+                    <a href="#">Branding</a>
+                    <a href="#">Illustration</a>
+                    <a href="#">Mobile</a>
+                    <a href="#">Typography</a>
+
+                </div>
+
+            </div>
+
+        </li>
+
+
+        
+        <li><a href="contact.html">Contact</a></li>
+
+    </ul>
+
+</nav>
+
+<!-- SKILLS SECTION -->
+
+<section class="skills-page">
+
+    <h2>My Skills</h2>
+
+    <div class="skill-boxes">
+
+        <div class="skill">
+            <h3>HTML</h3>
+            <p>Creating structured and semantic webpages.</p>
+        </div>
+
+        <div class="skill">
+            <h3>CSS</h3>
+            <p>Designing beautiful and responsive layouts.</p>
+        </div>
+
+        <div class="skill">
+            <h3>JavaScript</h3>
+            <p>Adding interactivity and dynamic features.</p>
+        </div>
+
+        <div class="skill">
+            <h3>PHP</h3>
+            <p>Developing backend systems and web applications.</p>
+        </div>
+
+        <div class="skill">
+            <h3>MySQL</h3>
+            <p>Managing and storing database information.</p>
+        </div>
+
+        <div class="skill">
+            <h3>Responsive Design</h3>
+            <p>Making websites mobile friendly and modern.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>© 2026 Madan | All Rights Reserved</p>
+
+</footer>
+
+</body>
+</html>

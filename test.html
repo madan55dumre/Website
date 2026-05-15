@@ -1,0 +1,752 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | Madan Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.60),rgba(0,0,0,0.75)),
+    url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+
+    overflow-x:hidden;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+    width:100%;
+    background:rgba(0,0,0,0.35);
+    backdrop-filter:blur(12px);
+
+    padding:18px 50px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+    color:white;
+    font-size:30px;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:28px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-size:15px;
+    transition:0.3s;
+    position:relative;
+}
+
+nav ul li a:hover{
+    color:#00e5ff;
+}
+
+nav ul li a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0%;
+    height:2px;
+    background:#00e5ff;
+    transition:0.4s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+/* ================= CONTACT SECTION ================= */
+
+.contact-section{
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:50px 20px;
+}
+
+/* ================= MAIN CARD ================= */
+
+.contact-container{
+
+    width:100%;
+    max-width:1050px;
+
+    display:flex;
+    gap:35px;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.10);
+
+    position:relative;
+    overflow:hidden;
+
+    transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,0.45),
+    inset 0 0 20px rgba(255,255,255,0.03);
+}
+
+/* ZOOM IN */
+
+.contact-container:hover{
+
+    transform:scale(1.04);
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,0.60),
+    0 0 40px rgba(0,229,255,0.20);
+}
+
+/* GLOW BORDER */
+
+.contact-container::before{
+
+    content:'';
+
+    position:absolute;
+    inset:-2px;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+    45deg,
+    #00e5ff,
+    #ff1493,
+    #00e5ff
+    );
+
+    z-index:-1;
+
+    filter:blur(22px);
+
+    opacity:0.45;
+}
+
+/* FLOATING CIRCLES */
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.05);
+
+    animation:float 10s linear infinite;
+}
+
+.circle:nth-child(1){
+    width:120px;
+    height:120px;
+    top:-25px;
+    left:-25px;
+}
+
+.circle:nth-child(2){
+    width:170px;
+    height:170px;
+    bottom:-40px;
+    right:-30px;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-25px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* ================= LEFT SIDE ================= */
+
+.contact-left{
+    flex:1;
+    color:white;
+}
+
+.contact-left h2{
+    font-size:40px;
+    margin-bottom:18px;
+}
+
+.contact-left p{
+    color:#ddd;
+    line-height:1.8;
+    margin-bottom:35px;
+    font-size:15px;
+}
+
+/* INFO */
+
+.contact-info{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.info-box{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    padding:15px;
+
+    background:rgba(255,255,255,0.05);
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    transition:0.35s ease;
+}
+
+.info-box:hover{
+
+    transform:
+    translateX(8px)
+    scale(1.02);
+}
+
+.icon{
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(45deg,#00e5ff,#0077ff);
+
+    font-size:20px;
+
+    box-shadow:
+    0 0 20px rgba(0,229,255,0.5);
+}
+
+.info-text h4{
+    margin-bottom:4px;
+}
+
+.info-text span{
+    color:#d5d5d5;
+    font-size:14px;
+}
+
+/* ================= RIGHT SIDE ================= */
+
+.contact-right{
+    flex:1.2;
+}
+
+/* TITLE */
+
+.form-title{
+    text-align:center;
+    color:white;
+    margin-bottom:30px;
+}
+
+.form-title h2{
+    font-size:38px;
+}
+
+.hire-line{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin-top:10px;
+}
+
+.hire-line span{
+    width:70px;
+    height:2px;
+    background:white;
+}
+
+.hire-line p{
+    color:#00e5ff;
+    font-weight:600;
+}
+
+/* ================= FORM ================= */
+
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.input-box{
+    margin-bottom:18px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:none;
+    outline:none;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,0.08);
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    transition:0.3s;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+    color:#ddd;
+}
+
+.contact-form textarea{
+    resize:none;
+    height:120px;
+}
+
+.contact-form option{
+    color:black;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus{
+
+    border-color:#00e5ff;
+
+    box-shadow:
+    0 0 18px rgba(0,229,255,0.35);
+}
+
+/* BUTTONS */
+
+.btn-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:10px;
+}
+
+.contact-form button{
+
+    padding:14px 35px;
+
+    border:none;
+    border-radius:40px;
+
+    background:
+    linear-gradient(45deg,#ff1493,#ff4fd8);
+
+    color:white;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.4s;
+
+    box-shadow:
+    0 12px 30px rgba(255,20,147,0.45);
+}
+
+.contact-form button:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.03);
+}
+
+.cv-btn{
+
+    text-decoration:none;
+
+    padding:14px 30px;
+
+    border-radius:40px;
+
+    background:
+    linear-gradient(45deg,#00e5ff,#00bcd4);
+
+    color:white;
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:0.4s;
+
+    box-shadow:
+    0 12px 30px rgba(0,229,255,0.40);
+}
+
+.cv-btn:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.03);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    text-align:center;
+
+    padding:18px;
+
+    color:white;
+
+    background:rgba(0,0,0,0.40);
+
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .contact-container{
+        flex-direction:column;
+        padding:30px;
+    }
+
+    .row{
+        grid-template-columns:1fr;
+    }
+
+    .btn-row{
+        flex-direction:column;
+        gap:15px;
+    }
+}
+
+@media(max-width:600px){
+
+    nav{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .contact-container{
+        padding:22px;
+    }
+
+    .contact-left h2{
+        font-size:34px;
+    }
+
+    .form-title h2{
+        font-size:30px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">Madan</div>
+
+    <ul>
+
+        <li><a href="Homepage.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+
+    </ul>
+
+</nav>
+
+<!-- CONTACT SECTION -->
+
+<section class="contact-section">
+
+    <div class="contact-container">
+
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+        <!-- LEFT -->
+
+        <div class="contact-left">
+
+            <h2>Contact Us</h2>
+
+            <p>
+                Feel free to contact me for web design,
+                frontend development, portfolio projects,
+                and creative collaborations.
+            </p>
+
+            <div class="contact-info">
+
+                <div class="info-box">
+
+                    <div class="icon">📍</div>
+
+                    <div class="info-text">
+
+                        <h4>Location</h4>
+
+                        <span>Kathmandu, Nepal</span>
+
+                    </div>
+
+                </div>
+
+                <div class="info-box">
+
+                    <div class="icon">✉</div>
+
+                    <div class="info-text">
+
+                        <h4>Email</h4>
+
+                        <span>madan55dumre@gmail.com</span>
+
+                    </div>
+
+                </div>
+
+                <div class="info-box">
+
+                    <div class="icon">📞</div>
+
+                    <div class="info-text">
+
+                        <h4>Phone</h4>
+
+                        <span>+977 9843137195</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="contact-right">
+
+            <form class="contact-form">
+
+                <div class="form-title">
+
+                    <h2>Wanna Hire?</h2>
+
+                    <div class="hire-line">
+
+                        <span></span>
+
+                        <p>Hire Now</p>
+
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="input-box">
+
+                        <input
+                        type="text"
+                        placeholder="Organization Name">
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <input
+                        type="email"
+                        placeholder="Email Address">
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="input-box">
+
+                        <input
+                        type="text"
+                        placeholder="Phone Number">
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <input
+                        type="text"
+                        placeholder="Office Location">
+
+                    </div>
+
+                </div>
+
+                <div class="input-box">
+
+                    <input
+                    type="text"
+                    placeholder="Required Skills">
+
+                </div>
+
+                <div class="input-box">
+
+                    <select>
+
+                        <option>
+                            Expected Salary Range
+                        </option>
+
+                        <option>
+                            Rs 10000 - Rs 20000
+                        </option>
+
+                        <option>
+                            Rs 20000 - Rs 40000
+                        </option>
+
+                        <option>
+                            Rs 40000 - Rs 50000
+                        </option>
+
+                        <option>
+                            Rs 50000+
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-box">
+
+                    <textarea
+                    placeholder="Message..."></textarea>
+
+                </div>
+
+                <div class="btn-row">
+
+                    <button type="submit">
+
+                        Hire Me
+
+                    </button>
+
+                    <a href="cv.pdf"
+                    class="cv-btn">
+
+                        Download CV
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>© 2026 Madan Portfolio | All Rights Reserved</p>
+
+</footer>
+
+</body>
+</html>

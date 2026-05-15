@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Madan Portfolio</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f7fb;
+    color:#c4bfc1;
+    overflow-x:hidden;
+}
+
+/* CUSTOM SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#f3f7f8;
+    border-radius:20px;
+}
+
+/* PARTICLE BACKGROUND */
+
+#particles{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    background:rgba(255, 255, 255, 0.95);
+    backdrop-filter:blur(10px);
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 20px rgba(226, 6, 6, 0.2);
+}
+
+nav h1{
+    color:white;
+    font-size:30px;
+    letter-spacing:2px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#111827;
+    font-size:17px;
+    transition:0.3s;
+    position:relative;
+}
+
+nav ul li a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#38bdf8;
+    transition:0.4s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+nav ul li a:hover{
+    color:#38bdf8;
+}
+
+/* HERO SECTION */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:80px 10%;
+    background:
+    linear-gradient(rgba(32, 34, 24, 0.568), rgba(3, 0, 3, 0.7)),
+    url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    position:relative;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#38bdf8;
+    border-radius:50%;
+    filter:blur(180px);
+    opacity:0.2;
+    animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(-40px);
+    }
+}
+
+.hero-content{
+    max-width:850px;
+    z-index:2;
+    animation:fadeUp 1.5s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero-content h2{
+    font-size:65px;
+    margin-bottom:20px;
+    min-height:90px;
+    text-shadow:0 0 15px rgba(56,189,248,0.5);
+}
+
+.hero-content p{
+    font-size:24px;
+    margin-bottom:30px;
+    color:#dbeafe;
+    min-height:40px;
+}
+
+#text::after{
+    content:"|";
+    animation:blink 0.7s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0;
+    }
+}
+
+.hero-btns{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.hero-content button,
+.hero-content .download-btn{
+    padding:14px 35px;
+    border:none;
+    border-radius:40px;
+    background:#38bdf8;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.4s;
+    text-decoration:none;
+    box-shadow:0 0 25px rgba(56,189,248,0.4);
+}
+
+.hero-content button:hover,
+.hero-content .download-btn:hover{
+    background:#0284c7;
+    transform:translateY(-5px) scale(1.05);
+}
+
+/* SOCIAL ICONS */
+
+.social-icons{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.social-icons a{
+    width:55px;
+    height:55px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    background:rgba(255,255,255,0.1);
+    color:white;
+    font-size:22px;
+    transition:0.4s;
+    backdrop-filter:blur(5px);
+}
+
+.social-icons a:hover{
+    background:#38bdf8;
+    transform:translateY(-10px) rotate(360deg);
+}
+
+/* SCROLL DOWN */
+
+.scroll-down{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:30px;
+    color:white;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    50%{
+        transform:translate(-50%,10px);
+    }
+}
+
+/* ABOUT */
+
+.about{
+    padding:100px 10%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:white;
+}
+
+.about-text{
+    max-width:900px;
+    text-align:center;
+}
+
+.about-text h2{
+    font-size:45px;
+    margin-bottom:20px;
+    color:#0f172a;
+}
+
+.about-text p{
+    font-size:19px;
+    line-height:1.8;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+    margin-top:60px;
+}
+
+.stat-box{
+    background:#f1f5f9;
+    padding:40px;
+    border-radius:20px;
+    transition:0.4s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.stat-box:hover{
+    transform:translateY(-10px);
+}
+
+.stat-box h3{
+    font-size:45px;
+    color:#0284c7;
+    margin-bottom:10px;
+}
+
+/* SKILLS */
+
+.skills{
+    background:#e2e8f0;
+    padding:100px 10%;
+    text-align:center;
+}
+
+.skills h2{
+    font-size:45px;
+    margin-bottom:50px;
+}
+
+.skill-boxes{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.skill{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.skill::before{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:5px;
+    background:#38bdf8;
+    left:0;
+    top:0;
+}
+
+.skill:hover{
+    transform:translateY(-12px) rotate(1deg);
+}
+
+.skill i{
+    font-size:50px;
+    color:#0284c7;
+    margin-bottom:20px;
+}
+
+.skill h3{
+    color:#0284c7;
+    margin-bottom:15px;
+    font-size:26px;
+}
+
+.skill p{
+    font-size:17px;
+}
+
+.progress-bar{
+    width:100%;
+    height:10px;
+    background:#cbd5e1;
+    border-radius:20px;
+    margin-top:20px;
+    overflow:hidden;
+}
+
+.progress{
+    height:100%;
+    background:#38bdf8;
+    border-radius:20px;
+    animation:load 3s ease;
+}
+
+@keyframes load{
+    from{
+        width:0;
+    }
+}
+
+/* PROJECT SECTION */
+
+.projects{
+    padding:100px 10%;
+    background:white;
+    text-align:center;
+}
+
+.projects h2{
+    font-size:45px;
+    margin-bottom:60px;
+}
+
+.project-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    background:#f8fafc;
+    border-radius:25px;
+    overflow:hidden;
+    transition:0.5s;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+.project-card:hover{
+    transform:translateY(-12px);
+}
+
+.project-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.project-content{
+    padding:25px;
+}
+
+.project-content h3{
+    color:#0284c7;
+    margin-bottom:15px;
+}
+
+/* CONTACT */
+
+.contact{
+    padding:100px 10%;
+    text-align:center;
+    background:white;
+}
+
+.contact h2{
+    font-size:45px;
+    margin-bottom:25px;
+}
+
+.contact p{
+    font-size:20px;
+    margin-bottom:25px;
+}
+
+.contact-form{
+    max-width:700px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    padding:18px;
+    border:none;
+    border-radius:15px;
+    background:#f1f5f9;
+    font-size:16px;
+    outline:none;
+}
+
+.contact-form button{
+    padding:16px;
+    border:none;
+    border-radius:15px;
+    background:#0f172a;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.contact-form button:hover{
+    background:#0284c7;
+}
+
+/* FOOTER */
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* BACK TO TOP */
+
+#topBtn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:#38bdf8;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    display:none;
+    z-index:999;
+    box-shadow:0 0 20px rgba(56,189,248,0.5);
+}
+
+/* REVEAL ANIMATION */
+
+.reveal{
+    opacity:0;
+    transform:translateY(70px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+        padding:15px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero-content h2{
+        font-size:42px;
+    }
+
+    .hero-content p{
+        font-size:18px;
+    }
+
+    .hero-btns{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .social-icons{
+        flex-wrap:wrap;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <h1>Madan</h1>
+
+    <ul>
+        <li><a href="Homepage.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skill.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+</nav>
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h2 id="text"></h2>
+
+        <p id="subtext"></p>
+
+        <div class="hero-btns">
+ 
+
+            
+             <a href="skills.html" class="download-btn">Hire Me</a>
+            <a href="skills.html" class="download-btn">Explore Skills</a>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://www.facebook.com/share/1B2pNxxP8j/"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/madan-dumre-589513216?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
+    </div>
+
+    <div class="scroll-down">
+        <i class="fa-solid fa-angle-down"></i>
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about reveal" id="about">
+
+    <div class="about-text">
+
+        <h2>
+            <a href="about.html" style="text-decoration:none; color:#0f172a;">
+                About Me
+            </a>
+        </h2>
+
+        <p>
+            Welcome to my personal portfolio website.
+            I am passionate about web development,
+            designing modern interfaces, and building
+            responsive websites using HTML, CSS,
+            JavaScript, PHP, and MySQL.
+        </p>
+
+        <div class="stats">
+
+            <div class="stat-box">
+                <h3 class="counter" data-target="15">0</h3>
+                <p>Projects Completed</p>
+            </div>
+
+            <div class="stat-box">
+                <h3 class="counter" data-target="5">0</h3>
+                <p>Programming Languages</p>
+            </div>
+
+            <div class="stat-box">
+                <h3 class="counter" data-target="100">0</h3>
+                <p>Creative Ideas</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section class="skills reveal" id="skills">
+
+    <h2>
+        <a href="skills.html" style="text-decoration:none; color:#0f172a;">
+            My Skills
+        </a>
+    </h2>
+
+    <div class="skill-boxes">
+
+        <div class="skill">
+            <i class="fab fa-html5"></i>
+            <h3>HTML</h3>
+            <p>Creating structured and semantic websites.</p>
+            <div class="progress-bar">
+                <div class="progress" style="width:95%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <i class="fab fa-css3-alt"></i>
+            <h3>CSS</h3>
+            <p>Designing modern and beautiful interfaces.</p>
+            <div class="progress-bar">
+                <div class="progress" style="width:90%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <i class="fab fa-js"></i>
+            <h3>JavaScript</h3>
+            <p>Adding interactivity and animations.</p>
+            <div class="progress-bar">
+                <div class="progress" style="width:85%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <i class="fa-solid fa-database"></i>
+            <h3>PHP & MySQL</h3>
+            <p>Building backend systems and databases.</p>
+            <div class="progress-bar">
+                <div class="progress" style="width:80%"></div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="projects reveal">
+
+    <h2>Featured Projects</h2>
+
+    <div class="project-container">
+
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+            <div class="project-content">
+                <h3>Portfolio Website</h3>
+                <p>Modern responsive portfolio using HTML, CSS and JavaScript.</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop">
+            <div class="project-content">
+                <h3>Creative Dashboard</h3>
+                <p>Beautiful admin panel with animation and responsive layout.</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop">
+            <div class="project-content">
+                <h3>Student Management</h3>
+                <p>PHP and MySQL based student management system.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact reveal" id="contact">
+
+    <h2>
+        <a href="contact.html" style="text-decoration:none; color:#0f172a;">
+            Contact Me
+        </a>
+    </h2>
+
+    <p>Email: madan@example.com</p>
+
+    <form class="contact-form">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea rows="6" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>© 2026 Madan | All Rights Reserved</p>
+
+</footer>
+
+<!-- BACK TO TOP -->
+
+<button id="topBtn">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+let text = "Hello, I'm Madan";
+let subtext = "Web Developer | Student | Creative Designer";
+
+let i = 0;
+let j = 0;
+
+function typeTitle(){
+
+    if(i < text.length){
+
+        document.getElementById("text").innerHTML += text.charAt(i);
+
+        i++;
+
+        setTimeout(typeTitle,100);
+
+    }else{
+
+        setTimeout(typeSubTitle,400);
+    }
+}
+
+function typeSubTitle(){
+
+    if(j < subtext.length){
+
+        document.getElementById("subtext").innerHTML += subtext.charAt(j);
+
+        j++;
+
+        setTimeout(typeSubTitle,50);
+    }
+}
+
+typeTitle();
+
+function showMessage(){
+
+    alert("Thank you for visiting my portfolio website!");
+}
+
+/* COUNTER ANIMATION */
+
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+
+    counter.innerText = '0';
+
+    const updateCounter = () => {
+
+        const target = +counter.getAttribute('data-target');
+        const c = +counter.innerText;
+
+        const increment = target / 100;
+
+        if(c < target){
+            counter.innerText = `${Math.ceil(c + increment)}`;
+            setTimeout(updateCounter,30);
+        }
+        else{
+            counter.innerText = target;
+        }
+    };
+
+    updateCounter();
+});
+
+/* SCROLL REVEAL */
+
+window.addEventListener('scroll', reveal);
+
+function reveal(){
+
+    const reveals = document.querySelectorAll('.reveal');
+
+    for(let i = 0; i < reveals.length; i++){
+
+        const windowHeight = window.innerHeight;
+        const revealTop = reveals[i].getBoundingClientRect().top;
+        const revealPoint = 120;
+
+        if(revealTop < windowHeight - revealPoint){
+            reveals[i].classList.add('active');
+        }
+    }
+}
+
+/* BACK TO TOP */
+
+const topBtn = document.getElementById('topBtn');
+
+window.onscroll = function(){
+
+    if(document.body.scrollTop > 300 || document.documentElement.scrollTop > 300){
+        topBtn.style.display = 'block';
+    }
+    else{
+        topBtn.style.display = 'none';
+    }
+}
+
+ topBtn.onclick = function(){
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+}
+
+/* PARTICLES */
+
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray = [];
+
+class Particle{
+
+    constructor(){
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = Math.random() * 2 - 1;
+        this.speedY = Math.random() * 2 - 1;
+    }
+
+    update(){
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if(this.x > canvas.width) this.x = 0;
+        if(this.x < 0) this.x = canvas.width;
+        if(this.y > canvas.height) this.y = 0;
+        if(this.y < 0) this.y = canvas.height;
+    }
+
+    draw(){
+        ctx.fillStyle = 'rgba(56,189,248,0.6)';
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+        ctx.fill();
+    }
+}
+
+function initParticles(){
+    particlesArray = [];
+
+    for(let i = 0; i < 120; i++){
+        particlesArray.push(new Particle());
+    }
+}
+
+initParticles();
+
+function animateParticles(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    for(let i = 0; i < particlesArray.length; i++){
+        particlesArray[i].update();
+        particlesArray[i].draw();
+    }
+
+    requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+
+window.addEventListener('resize',()=>{
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    initParticles();
+});
+
+</script>
+
+</body>
+</html>
+```

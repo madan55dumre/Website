@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Skills | Madan Portfolio</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    background:#0f172a;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav h1{
+    color:white;
+    font-size:30px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-size:17px;
+}
+
+nav ul li a:hover{
+    color:#38bdf8;
+}
+
+/* SKILLS */
+
+.skills-page{
+    padding:100px 10%;
+    text-align:center;
+}
+
+.skills-page h2{
+    font-size:50px;
+    margin-bottom:50px;
+    color:#0f172a;
+}
+
+.skill-boxes{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.skill{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.skill:hover{
+    transform:translateY(-10px);
+}
+
+.skill h3{
+    color:#0284c7;
+    margin-bottom:15px;
+    font-size:28px;
+}
+
+.skill p{
+    font-size:18px;
+    line-height:1.7;
+}
+
+/* FOOTER */
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:50px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <h1>Madan</h1>
+
+    <ul>
+        <li><a href="Homepage.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+</nav>
+
+<!-- SKILLS SECTION -->
+
+<section class="skills-page">
+
+    <h2>My Skills</h2>
+
+    <div class="skill-boxes">
+
+        <div class="skill">
+            <h3>HTML</h3>
+            <p>Creating structured and semantic webpages.</p>
+        </div>
+
+        <div class="skill">
+            <h3>CSS</h3>
+            <p>Designing beautiful and responsive layouts.</p>
+        </div>
+
+        <div class="skill">
+            <h3>JavaScript</h3>
+            <p>Adding interactivity and dynamic features.</p>
+        </div>
+
+        <div class="skill">
+            <h3>PHP</h3>
+            <p>Developing backend systems and web applications.</p>
+        </div>
+
+        <div class="skill">
+            <h3>MySQL</h3>
+            <p>Managing and storing database information.</p>
+        </div>
+
+        <div class="skill">
+            <h3>Responsive Design</h3>
+            <p>Making websites mobile friendly and modern.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>© 2026 Madan | All Rights Reserved</p>
+
+</footer>
+
+</body>
+</html>
